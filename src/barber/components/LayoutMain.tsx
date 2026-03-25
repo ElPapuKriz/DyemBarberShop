@@ -1,0 +1,21 @@
+import { Outlet } from "react-router"
+import CustomHeader from "../customs/CustomHeader"
+import CustomFooter from "../customs/CustomFooter"
+
+export const LayoutMain = () => {
+    return (
+        <div className="flex flex-col bg-taupe-900">
+            
+                <CustomHeader/>
+
+                <div className=" bg-taupe-800">
+                    <Outlet />
+                </div>
+            
+                <CustomFooter/>
+            
+        </div>
+    )
+}
+
+
