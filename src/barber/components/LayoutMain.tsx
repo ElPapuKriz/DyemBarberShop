@@ -8,7 +8,7 @@ export const LayoutMain = () => {
             
                 <CustomHeader/>
 
-                <div className=" bg-taupe-800">
+                <div className="bg-taupe-800">
                     <Outlet />
                 </div>
             

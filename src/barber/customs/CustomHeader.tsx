@@ -1,23 +1,35 @@
 import { Button } from "@/components/ui/button"
 import logo from "@/assets/logo.png"
+import { MenuIcon } from "lucide-react"
+import { useState } from "react"
 const CustomHeader = () => {
+    const [menuOpen , setMenuOpen] = useState(false)
+
+    const handleMenuOpen = ()=>{setMenuOpen(!menuOpen)}
+
     return (
         <header>
-            <div className="w-full flex justify-between fixed bg-taupe-800/90 backdrop-blur-md p-5 items-center">
-                <div className="">
+            <div className="w-full flex justify-between z-50 fixed bg-linear-to-r from-[#251e19] to-[#AB6626]/10 backdrop-blur-md p-5 items-center">
+                
+                <div>
                     <img 
                     src={logo}
                     alt="logo-Dyem-BarberShop"
                     width={150}
                     />
-
                 </div>
 
-                <div className="flex items-end">
+                <Button
+                onClick={handleMenuOpen}
+                className="md:hidden"
+                ><MenuIcon className="text-[#978957]"/>
+                </Button>
 
+                <div className="hidden md:flex items-end">
                     <Button
                     onClick={()=>alert("Aqui veras tu inicio")}
-                    >Inicio
+                    >
+                    Inicio
                     </Button>
 
                     <Button
@@ -28,7 +40,8 @@ const CustomHeader = () => {
 
                     <Button
                     onClick={()=>alert("Aqui veras acerca de mí")}
-                    >Acerca de mí
+                    >
+                    Acerca de mí
                     </Button>
                 </div>
             </div>
