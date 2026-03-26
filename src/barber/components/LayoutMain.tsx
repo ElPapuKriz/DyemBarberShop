@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
-import CustomHeader from "../customs/CustomHeader"
-import CustomFooter from "../customs/CustomFooter"
+import CustomHeader from "@/barber/customs/CustomHeader"
+import CustomFooter from "@/barber/customs/CustomFooter"
 
 export const LayoutMain = () => {
     return (

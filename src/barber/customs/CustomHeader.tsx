@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button"
-
+import logo from "@/assets/logo.png"
 const CustomHeader = () => {
     return (
         <header>
             <div className="w-full flex justify-between fixed bg-taupe-800/90 backdrop-blur-md p-5 items-center">
                 <div className="">
                     <img 
-                    src="/src/assets/logo.png"
+                    src={logo}
                     alt="logo-Dyem-BarberShop"
                     width={150}
                     />

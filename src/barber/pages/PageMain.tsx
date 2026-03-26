@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import video1 from "@/assets/videos/v1.mp4"
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -10,7 +11,7 @@ const PageMain = () => {
     return (
         <div className="min-h-svh mt-25  ">
             <video 
-            src="/src/assets/videos/v1.mp4"
+            src={video1}
             className="w-full xl:h-[120svh] h-full"
             loop
             autoPlay
