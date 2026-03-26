@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import video1 from "@/assets/videos/v1.mp4"
+import video1 from "@/assets/videos/v1.webm"
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
