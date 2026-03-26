@@ -1,13 +1,31 @@
+import { useSearchParams } from "react-router"
 import { motion } from "framer-motion"
 import { images } from "@/mock/data.mock"
+import CustomPagination from "../customs/CustomPagination"
+import { useEffect } from "react"
 
 
 const Catalogo = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const page   = Number(searchParams.get('page'))  || 1;
+    const limit  = Number(searchParams.get('limit')) || 6;
+    const offset = (page - 1) * limit
+    const imgFiltradas = Math.ceil(images.length/limit)
+
+    if (isNaN(page))setSearchParams({ page: "1" })
+    if (isNaN(limit))setSearchParams({ limit: "6" })
+
+    useEffect(()=>{
+        if (page>imgFiltradas || page<1)setSearchParams({ page: "1" })
+    },[page])
+    
+
     return (
-        <section className="min-h-screen bg-[#0B0B0B] text-white px-6 py-20">
+        <section className=" bg-[#0B0B0B] text-white px-6 pt-20">
 
             {/* TITULO */}
-            <div className="mb-16 text-center">
+            <div className="mb-5 text-center">
                 <h2 className="text-2xl md:text-6xl font-title tracking-wide">
                     Galería de Estilo
                 </h2>
@@ -16,10 +34,13 @@ const Catalogo = () => {
                 </p>
             </div>
 
+            {/* PAGINACION-ARRIBA  */}
+            <CustomPagination totalPages={imgFiltradas}/>
+
             {/* GRID */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                {images.map((item, index) => (
+                {images.slice(offset,offset+limit).map((item, index) => (
                     <motion.div
                         key={item.id}
                         initial={{ opacity: 0, y: 50 }}
@@ -32,7 +53,7 @@ const Catalogo = () => {
                         {/* IMAGEN */}
                         <img
                             src={item.src}
-                            className="w-full h-50 md:h-100 object-cover transition duration-500 group-hover:scale-110"
+                            className="w-full h-80 md:h-120 object-cover transition duration-500 group-hover:scale-110"
                         />
 
                         {/* OVERLAY */}
@@ -52,6 +73,10 @@ const Catalogo = () => {
                 ))}
 
             </div>
+
+            {/* PAGINACION-ABAJO  */}
+            <CustomPagination totalPages={Math.ceil(images.length/limit)}/>
+
         </section>
     )
 }

@@ -7,10 +7,11 @@ export const appRouter = createBrowserRouter([
         path: "/",
         element: <LayoutMain />,
         children: [
-            {path:"",element:<PageMain/>}
+            {path:"",element:<PageMain/>},
+            {path: "*", element: <PageMain/>},
         ]
     },
     {
-        path: "*", element: <h1>Esta pagina no existe.</h1>
+        
     }
 ])
