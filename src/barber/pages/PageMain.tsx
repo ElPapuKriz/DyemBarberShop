@@ -11,7 +11,7 @@ const PageMain = () => {
     };
 
     return (
-        <div className="mt-30 min-h-svh">
+        <div className="mt-25 min-h-svh">
             
             {/* CONTENEDOR RELATIVE */}
             <div className="relative w-full xl:h-[120svh] h-full"
