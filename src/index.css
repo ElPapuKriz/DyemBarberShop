@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Gabarito:wght@400..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme{
+  --font-title:"Bungee", system-ui;
+  --font-main:"Gabarito", cursive;
+}
 
 @theme inline {
     --font-heading: var(--font-sans);
@@ -47,6 +53,7 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
 }
+
 
 :root {
     --background: oklch(1 0 0);
@@ -128,3 +135,6 @@
     @apply font-sans;
     }
 }
+
+
+

@@ -3,7 +3,7 @@ const CustomFooter = () => {
 
     return (
         <div className="bg-black text-center">
-            <span className="text-white text-base md:text-lg">© {getYear.getFullYear()} Dyem BarberShop</span>
+            <span className="text-white text-base md:text-lg font-main">© {getYear.getFullYear()} Dyem BarberShop</span>
         </div>
     )
 }
