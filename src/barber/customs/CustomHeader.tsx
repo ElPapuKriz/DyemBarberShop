@@ -3,8 +3,6 @@ import logo from "@/assets/logo.png"
 import { ScissorsIcon } from "lucide-react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Link } from "react-router"
-
 
 const CustomHeader = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -72,13 +70,13 @@ const CustomHeader = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <Button
+                        <Button asChild
                             className="text-main text-white"
                             onMouseEnter={() => {setIcon("inicio")}}
                             onMouseLeave={() => {setIcon("")}}
-                            onClick={()=><Link to={'#inicio'}/>}
                         >
-                            {Icon==="inicio" && <ScissorsIcon className="text-yellow-700"/> } Inicio
+                            <a href="#inicio"> {Icon==="inicio" && <ScissorsIcon className="text-yellow-700"/> } Inicio </a>
+                            
                         </Button>
                     </motion.div>
 
@@ -89,12 +87,12 @@ const CustomHeader = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <Button
+                        <Button asChild
                             className="text-main text-white"
                             onMouseEnter={() => {setIcon("catalogo")}}
                             onMouseLeave={() => {setIcon("")}}
                         >
-                            {Icon==="catalogo" && <ScissorsIcon className="text-yellow-700"/> } Catálogo
+                        <a href="#galeria">{Icon==="catalogo" && <ScissorsIcon className="text-yellow-700"/> } Galería</a> 
                         </Button>
                     </motion.div>
 

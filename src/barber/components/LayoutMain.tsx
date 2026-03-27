@@ -4,7 +4,7 @@ import CustomFooter from "@/barber/customs/CustomFooter"
 
 export const LayoutMain = () => {
     return (
-        <div className="flex flex-col bg-taupe-900">
+        <div id="inicio" className="flex flex-col bg-taupe-900 ">
             
                 <CustomHeader/>
 

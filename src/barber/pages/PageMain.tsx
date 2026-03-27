@@ -12,7 +12,7 @@ const PageMain = () => {
     };
 
     return (
-        <div id='inicio' className="mt-25 min-h-svh">
+        <div className="mt-25 min-h-svh">
             
             {/* CONTENEDOR RELATIVE */}
             <div className="relative w-full xl:h-[120svh] h-full"
@@ -33,7 +33,7 @@ const PageMain = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
 
                 {/* TEXTO */}
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div  className="absolute inset-0 flex items-center justify-center">
                     <h1 className="text-white/60 text-2xl md:text-7xl font-title tracking-wide text-center px-4">
                         No es solo un corte<br />Es identidad
                     </h1>

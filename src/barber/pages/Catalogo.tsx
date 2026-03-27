@@ -22,7 +22,7 @@ const Catalogo = () => {
     
 
     return (
-        <section id='galeria' className=" bg-[#0B0B0B] text-white px-6 pt-20">
+        <section id='galeria'  className=" bg-[#0B0B0B] text-white px-6 pt-20 scroll-mt-15">
 
             {/* TITULO */}
             <div className="mb-5 text-center">
