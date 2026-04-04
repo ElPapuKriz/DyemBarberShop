@@ -12,7 +12,6 @@ const AboutMe = () => {
 
     const [index, setIndex] = useState(0)
 
-
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length)
@@ -21,13 +20,6 @@ const AboutMe = () => {
         return () => clearInterval(interval)
     }, [images.length])
 
-
-    useEffect(() => {
-        images.forEach((src) => {
-            const img = new Image()
-            img.src = src
-        })
-    }, [images])
 
     const next = () => setIndex((prev) => (prev + 1) % images.length)
     const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length)
@@ -128,6 +120,7 @@ const AboutMe = () => {
             {/* Videos OPTIMIZADOS */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.video
+                    src="me/video1.mp4"
                     whileHover={{ scale: 1.03 }}
                     className="w-full rounded-2xl shadow-lg"
                     controls
@@ -137,6 +130,7 @@ const AboutMe = () => {
                 </motion.video>
 
                 <motion.video
+                    src="me/video2.mp4"
                     whileHover={{ scale: 1.03 }}
                     className="w-full rounded-2xl shadow-lg"
                     controls
