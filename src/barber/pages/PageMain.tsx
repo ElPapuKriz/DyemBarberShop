@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import video1 from "@/assets/videos/v1.webm"
 import Catalogo from "./Catalogo";
+import AboutMe from "./AboutMe";
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -42,6 +43,10 @@ const PageMain = () => {
 
             {/* CATALOGO */}
             <Catalogo />
+
+            {/*ACERCA DE MÍ*/}
+            <AboutMe/>
+
         </div>
     )
 }
