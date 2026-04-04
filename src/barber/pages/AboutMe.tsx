@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-
-const images = [
-    "me/me1.jpeg",
-    "me/me2.jpeg",
-    "me/me3.jpeg",
-    "me/me4.jpeg",
-]
+import { useEffect, useMemo, useState } from "react"
+import { motion } from "framer-motion"
 
 const AboutMe = () => {
+
+    const images = useMemo(() => [
+        "me/me1.jpeg",
+        "me/me2.jpeg",
+        "me/me3.jpeg",
+        "me/me4.jpeg",
+    ], [])
+
     const [index, setIndex] = useState(0)
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -17,7 +19,15 @@ const AboutMe = () => {
         }, 5000)
 
         return () => clearInterval(interval)
-    }, [])
+    }, [images.length])
+
+
+    useEffect(() => {
+        images.forEach((src) => {
+            const img = new Image()
+            img.src = src
+        })
+    }, [images])
 
     const next = () => setIndex((prev) => (prev + 1) % images.length)
     const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length)
@@ -39,22 +49,26 @@ const AboutMe = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 bg-[#111] rounded-3xl overflow-hidden shadow-xl">
 
                 {/* Slider */}
-                <div className="relative w-full h-[300px] md:h-[500px] overflow-hidden">
+                <div className="relative w-full h-75 md:h-125 overflow-hidden">
 
-                    <AnimatePresence mode="wait">
+                    
+                    {images.map((img, i) => (
                         <motion.img
-                            key={index}
-                            src={images[index]}
-                            initial={{ opacity: 0, scale: 1.1 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 1.05 }}
-                            transition={{ duration: 0.8 }}
+                            key={i}
+                            src={img}
+                            loading="lazy"
                             className="absolute w-full h-full object-cover"
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{
+                                opacity: i === index ? 1 : 0,
+                                scale: i === index ? 1 : 1.05
+                            }}
+                            transition={{ duration: 0.8 }}
                         />
-                    </AnimatePresence>
+                    ))}
 
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
 
                     {/* Controls */}
                     <div className="absolute inset-0 flex items-center justify-between px-4">
@@ -85,7 +99,7 @@ const AboutMe = () => {
 
                 {/* Content */}
                 <div className="p-8 flex flex-col justify-center gap-4">
-                    
+
                     <p className="text-gray-300 leading-relaxed font-main">
                         Cuando te cortas el cabello conmigo, no solo estás recibiendo un servicio… estás viviendo una experiencia.
 
@@ -111,21 +125,25 @@ const AboutMe = () => {
 
             </div>
 
-            {/* Videos */}
+            {/* Videos OPTIMIZADOS */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.video
                     whileHover={{ scale: 1.03 }}
                     className="w-full rounded-2xl shadow-lg"
                     controls
-                    src="videos/video1.mp4"
-                />
+                    preload="none"
+                >
+                    <source src="videos/video1.mp4" type="video/mp4" />
+                </motion.video>
 
                 <motion.video
                     whileHover={{ scale: 1.03 }}
                     className="w-full rounded-2xl shadow-lg"
                     controls
-                    src="videos/video2.mp4"
-                />
+                    preload="none"
+                >
+                    <source src="videos/video2.mp4" type="video/mp4" />
+                </motion.video>
             </div>
 
         </section>
