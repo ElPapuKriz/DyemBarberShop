@@ -1,17 +1,17 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
-const AboutMe = () => {
-
-    const images = useMemo(() => [
+const images = [
         "me/me1.jpeg",
         "me/me2.jpeg",
         "me/me3.jpeg",
         "me/me4.jpeg",
-    ], [])
+    ]
 
+const AboutMe = () => {
+    
     const [index, setIndex] = useState(0)
-
+    
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length)
@@ -21,11 +21,8 @@ const AboutMe = () => {
     }, [images.length])
 
 
-    const next = () => setIndex((prev) => (prev + 1) % images.length)
-    const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length)
-
     return (
-        <section className="bg-[#0B0B0B] p-10 text-white ">
+        <section id="aboutMe" className="bg-[#0B0B0B] p-6 text-white scroll-mt-30">
 
             {/* Title */}
             <div className="mb-10 text-center">
@@ -41,7 +38,7 @@ const AboutMe = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 bg-[#111] rounded-3xl overflow-hidden shadow-xl">
 
                 {/* Slider */}
-                <div className="relative w-full h-75 md:h-125 overflow-hidden">
+                <div className="relative w-full h-200 overflow-hidden">
 
                     
                     {images.map((img, i) => (
@@ -49,7 +46,7 @@ const AboutMe = () => {
                             key={i}
                             src={img}
                             loading="lazy"
-                            className="absolute w-full h-full object-cover"
+                            className="absolute w-full h-200 md:h-270 object-cover"
                             initial={{ opacity: 0, scale: 1.1 }}
                             animate={{
                                 opacity: i === index ? 1 : 0,
@@ -62,37 +59,14 @@ const AboutMe = () => {
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
 
-                    {/* Controls */}
-                    <div className="absolute inset-0 flex items-center justify-between px-4">
-                        <button
-                            onClick={prev}
-                            className="bg-black/50 hover:bg-black/70 p-2 rounded-full"
-                        >
-                            ◀
-                        </button>
-                        <button
-                            onClick={next}
-                            className="bg-black/50 hover:bg-black/70 p-2 rounded-full"
-                        >
-                            ▶
-                        </button>
-                    </div>
-
-                    {/* Dots */}
-                    <div className="absolute bottom-4 w-full flex justify-center gap-2">
-                        {images.map((_, i) => (
-                            <div
-                                key={i}
-                                className={`h-2 w-2 rounded-full ${i === index ? "bg-white" : "bg-gray-500"}`}
-                            />
-                        ))}
-                    </div>
+                    
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col justify-center gap-4">
+                <div className="p-10 flex flex-col justify-center gap-4 ">
 
-                    <p className="text-gray-300 leading-relaxed font-main">
+                    <h3 className="text-center font-title text-3xl p-3">Dario Jeyson</h3>
+                    <p className="text-gray-300 leading-relaxed font-main text-md lg:text-2xl">
                         Cuando te cortas el cabello conmigo, no solo estás recibiendo un servicio… estás viviendo una experiencia.
 
                         No soy solo un barbero. Soy un artista. Como un Van Gogh, un Da Vinci o un Miguel Ángel, cada corte es una obra única, pensada y creada especialmente para ti.
@@ -105,11 +79,12 @@ const AboutMe = () => {
                     </p>
 
                     <motion.div
+                        className="flex flex-col justify-center items-center"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <button className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:scale-105 transition">
+                        <button className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:scale-105 transition animate-bounce">
                             Ver más
                         </button>
                     </motion.div>

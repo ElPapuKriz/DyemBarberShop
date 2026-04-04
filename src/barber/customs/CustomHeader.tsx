@@ -101,12 +101,12 @@ const CustomHeader = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <Button
+                        <Button asChild
                             className="text-main text-white"
                             onMouseEnter={() => {setIcon("acerca")}}
                             onMouseLeave={() => {setIcon("")}}
                         >
-                        {Icon==="acerca" && <ScissorsIcon className="text-yellow-700"/> } Acerca de mí
+                        <a href="#aboutMe">{Icon==="acerca" && <ScissorsIcon className="text-yellow-700"/> } Acerca de mí</a> 
                         </Button>
                     </motion.div>
 
