@@ -2,16 +2,22 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 const images = [
-        "me/me1.jpeg",
-        "me/me2.jpeg",
-        "me/me3.jpeg",
-        "me/me4.jpeg",
-    ]
+    "me/me1.jpeg",
+    "me/me2.jpeg",
+    "me/me3.jpeg",
+    "me/me4.jpeg",
+]
+
+const videos = [
+    "me/video1.mp4",
+    "me/video2.mp4",
+]
 
 const AboutMe = () => {
-    
+
     const [index, setIndex] = useState(0)
-    
+    const [aboutme, setAboutMe] = useState('hidden')
+
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length)
@@ -40,7 +46,7 @@ const AboutMe = () => {
                 {/* Slider */}
                 <div className="relative w-full h-200 overflow-hidden">
 
-                    
+
                     {images.map((img, i) => (
                         <motion.img
                             key={i}
@@ -59,14 +65,14 @@ const AboutMe = () => {
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
 
-                    
+
                 </div>
 
                 {/* Content */}
                 <div className="p-10 flex flex-col justify-center gap-4 ">
 
                     <h3 className="text-center font-title text-3xl p-3">Dario Jeyson</h3>
-                    <p className="text-gray-300 leading-relaxed font-main text-md lg:text-2xl">
+                    <span className={`${aboutme} text-gray-300 leading-relaxed font-main text-md lg:text-2xl `}>
                         Cuando te cortas el cabello conmigo, no solo estás recibiendo un servicio… estás viviendo una experiencia.
 
                         No soy solo un barbero. Soy un artista. Como un Van Gogh, un Da Vinci o un Miguel Ángel, cada corte es una obra única, pensada y creada especialmente para ti.
@@ -76,7 +82,7 @@ const AboutMe = () => {
                         Mi objetivo no es ser recordado únicamente como alguien que cortaba cabello, sino como un artista que transformaba estilos, elevaba confianza y dejaba huella en cada persona.
 
                         Así que cuando visites esta barbería, siéntete afortunado… porque no solo estás frente a un barbero, estás frente a un artista.
-                    </p>
+                    </span>
 
                     <motion.div
                         className="flex flex-col justify-center items-center"
@@ -84,36 +90,21 @@ const AboutMe = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <button className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:scale-105 transition animate-bounce">
-                            Ver más
+                        <button
+                            className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:scale-105 transition animate-bounce cursor-pointer font-main"
+                            onClick={() => setAboutMe(aboutme === "hidden" ? "" : "hidden")}
+                        >
+                            {aboutme === "hidden" ? "Ver más" : "Ver menos"}
                         </button>
                     </motion.div>
                 </div>
 
             </div>
 
-            {/* Videos OPTIMIZADOS */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.video
-                    src="me/video1.mp4"
-                    whileHover={{ scale: 1.03 }}
-                    className="w-full rounded-2xl shadow-lg"
-                    controls
-                    preload="none"
-                >
-                    <source src="videos/video1.mp4" type="video/mp4" />
-                </motion.video>
+            {/* Videos */}
+            
 
-                <motion.video
-                    src="me/video2.mp4"
-                    whileHover={{ scale: 1.03 }}
-                    className="w-full rounded-2xl shadow-lg"
-                    controls
-                    preload="none"
-                >
-                    <source src="videos/video2.mp4" type="video/mp4" />
-                </motion.video>
-            </div>
+            
 
         </section>
     )
