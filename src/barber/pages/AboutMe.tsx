@@ -61,9 +61,9 @@ const AboutMe = () => {
                             transition={{ duration: 0.8 }}
                         />
                     ))}
-
+                    <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-title text-3xl md:text-5xl p-3 z-10 text-white/60">Dario Jeyson</h3>
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/60 to-transparent" />
 
 
                 </div>
@@ -71,7 +71,7 @@ const AboutMe = () => {
                 {/* Content */}
                 <div className="p-10 flex flex-col justify-center gap-4 ">
 
-                    <h3 className="text-center font-title text-3xl p-3">Dario Jeyson</h3>
+                    
                     <span className={`${aboutme} text-gray-300 leading-relaxed font-main text-md lg:text-2xl `}>
                         Cuando te cortas el cabello conmigo, no solo estás recibiendo un servicio… estás viviendo una experiencia.
 
