@@ -2,6 +2,7 @@ import { useRef } from "react"
 import video1 from "@/assets/videos/v1.webm"
 import Catalogo from "./Catalogo";
 import AboutMe from "./AboutMe";
+import BtnWsp from "../customs/BtnWsp";
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -46,6 +47,9 @@ const PageMain = () => {
 
             {/*ACERCA DE MÍ*/}
             <AboutMe/>
+
+            {/*BOTON WSP*/}
+            <BtnWsp/>
 
         </div>
     )

@@ -29,38 +29,66 @@ const CustomHeader = () => {
 
                 <Button
                     onClick={handleMenuOpen}
-                    className="md:hidden"
+                    className="md:hidden p-4"
                 >
-                    <ScissorsIcon className="text-[#978957] size-5"/>
+                    <ScissorsIcon className="text-[#978957] size-5" />
                 </Button>
 
                 <div className="hidden md:flex items-end gap-3 font-main">
-                    <Button
-                        onClick={() => alert("Aqui veras tu inicio")}
-                    >
-                        Inicio
-                    </Button>
 
-                    <Button
-                        onClick={() => alert("Aqui veras tu catálogo")}
+                    <motion.div
+                        initial={{ opacity: 0, x: 200 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
                     >
-                        Catálogo
-                    </Button>
+                        <Button asChild
+                            className="text-main text-white p-5 text-md"
+                            onMouseEnter={() => { setIcon("inicio") }}
+                            onMouseLeave={() => { setIcon("") }}
+                        >
+                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-yellow-700" />} Inicio </a>
 
-                    <Button
-                        onClick={() => alert("Aqui veras acerca de mí")}
+                        </Button>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 200 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
                     >
-                        Acerca de mí
-                    </Button>
+                        <Button asChild
+                            className="text-main text-white p-5 text-md"
+                            onMouseEnter={() => { setIcon("catalogo") }}
+                            onMouseLeave={() => { setIcon("") }}
+                        >
+                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-yellow-700" />} Galería</a>
+                        </Button>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 200 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <Button asChild
+                            className="text-main text-white p-5 text-md"
+                            onMouseEnter={() => { setIcon("acerca") }}
+                            onMouseLeave={() => { setIcon("") }}
+                        >
+                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-yellow-700" />} Acerca de mí </a>
+                        </Button>
+                    </motion.div>
+
+
                 </div>
             </div>
 
             {/* Modal */}
             <motion.div
-                initial    ={{ opacity: 0, y: -50 }}
+                initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition ={{ delay: 0.1 }}
-                className  ={`${menuOpen ? 'md:hidden' : 'hidden'} fixed z-50 bg-[#251e19]/80 w-50 h-50 rounded-md top-30 right-5`}
+                transition={{ delay: 0.1 }}
+                className={`${menuOpen ? 'md:hidden' : 'hidden'} fixed z-50 bg-[#251e19]/80 w-50 h-50 rounded-md top-30 right-5`}
             >
                 <div
                     className="flex flex-col gap-2 p-2 my-2 mx-2 bg-amber-100/40 rounded-md "
@@ -72,11 +100,11 @@ const CustomHeader = () => {
                     >
                         <Button asChild
                             className="text-main text-white"
-                            onMouseEnter={() => {setIcon("inicio")}}
-                            onMouseLeave={() => {setIcon("")}}
+                            onMouseEnter={() => { setIcon("inicio") }}
+                            onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#inicio"> {Icon==="inicio" && <ScissorsIcon className="text-yellow-700"/> } Inicio </a>
-                            
+                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-yellow-700" />} Inicio </a>
+
                         </Button>
                     </motion.div>
 
@@ -89,10 +117,10 @@ const CustomHeader = () => {
                     >
                         <Button asChild
                             className="text-main text-white"
-                            onMouseEnter={() => {setIcon("catalogo")}}
-                            onMouseLeave={() => {setIcon("")}}
+                            onMouseEnter={() => { setIcon("catalogo") }}
+                            onMouseLeave={() => { setIcon("") }}
                         >
-                        <a href="#galeria">{Icon==="catalogo" && <ScissorsIcon className="text-yellow-700"/> } Galería</a> 
+                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-yellow-700" />} Galería</a>
                         </Button>
                     </motion.div>
 
@@ -103,10 +131,10 @@ const CustomHeader = () => {
                     >
                         <Button asChild
                             className="text-main text-white"
-                            onMouseEnter={() => {setIcon("acerca")}}
-                            onMouseLeave={() => {setIcon("")}}
+                            onMouseEnter={() => { setIcon("acerca") }}
+                            onMouseLeave={() => { setIcon("") }}
                         >
-                        <a href="#aboutMe">{Icon==="acerca" && <ScissorsIcon className="text-yellow-700"/> } Acerca de mí</a> 
+                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-yellow-700" />} Acerca de mí</a>
                         </Button>
                     </motion.div>
 

@@ -117,9 +117,9 @@ const AboutMe = () => {
 
             {/* Videos */}
 
-            <div className="mt-12 flex flex-col items-center gap-4">
+            <div className="mt-12 flex flex-col items-center gap-6">
 
-                <div className="relative w-100 md:w-120">
+                <div className="relative w-full max-w-100 md:w-120">
 
                     <AnimatePresence mode="wait">
                         <motion.video
