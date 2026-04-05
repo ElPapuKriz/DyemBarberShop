@@ -9,12 +9,12 @@ const Catalogo = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const page   = Number(searchParams.get('page'))  || 1;
-    const limit  = Number(searchParams.get('limit')) || 6;
+    const limit  = Number(searchParams.get('limit')) || 4;
     const offset = (page - 1) * limit
     const imgFiltradas = Math.ceil(images.length/limit)
 
     if (isNaN(page))setSearchParams({ page: "1" })
-    if (isNaN(limit))setSearchParams({ limit: "6" })
+    if (isNaN(limit))setSearchParams({ limit: "4" })
 
     useEffect(()=>{
         if (page>imgFiltradas || page<1)setSearchParams({ page: "1" })
@@ -26,7 +26,7 @@ const Catalogo = () => {
 
             {/* TITULO */}
             <div className="mb-5 text-center">
-                <h2 className="text-2xl md:text-6xl font-title tracking-wide">
+                <h2 className="text-5xl md:text-7xl font-minimalist tracking-wide">
                     Galería de Estilo
                 </h2>
                 <p className="text-gray-400 mt-4 font-main">

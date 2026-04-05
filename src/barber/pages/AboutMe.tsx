@@ -9,11 +9,23 @@ const images = [
 ]
 
 const videos = [
-    "me/video1.webm",
-    "me/video2.webm",
-    "me/video3.webm",
-    "me/video4.webm",
-]
+    {
+        mp4: "me/video1.mp4",
+        webm: "me/video1.webm"
+    },
+    {
+        mp4: "me/video2.mp4",
+        webm: "me/video2.webm"
+    },
+    {
+        mp4: "me/video3.mp4",
+        webm: "me/video3.webm"
+    },
+    {
+        mp4: "me/video4.mp4",
+        webm: "me/video4.webm"
+    },
+];
 
 const AboutMe = () => {
 
@@ -46,7 +58,7 @@ const AboutMe = () => {
 
             {/* Title */}
             <div className="mb-10 text-center">
-                <h2 className="text-3xl md:text-6xl font-title tracking-wide">
+                <h2 className="text-5xl md:text-6xl font-minimalist tracking-wide">
                     Acerca de mí
                 </h2>
                 <p className="text-gray-400 mt-4 font-main">
@@ -75,7 +87,7 @@ const AboutMe = () => {
                             transition={{ duration: 0.8 }}
                         />
                     ))}
-                    <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-title text-3xl md:text-5xl p-3 z-10 text-white/60">Dario Jeyson</h3>
+                    <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-minimalist text-5xl md:text-8xl p-3 z-10 text-white/60">Dario Jeyson</h3>
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/60 to-transparent" />
 
@@ -123,20 +135,27 @@ const AboutMe = () => {
 
                     <AnimatePresence mode="wait">
                         <motion.video
-                            key={videos[indexVideo]}
-                            src={videos[indexVideo]}
+                            key={videos[indexVideo].mp4}
                             className="w-full rounded-2xl shadow-lg"
                             controls
                             controlsList="nodownload noremoteplayback"
                             disablePictureInPicture
-                        />
+                        >
+                            {/* MP4 (PRIORIDAD ALTA - Safari, iPhone) */}
+                            <source src={videos[indexVideo].mp4} type="video/mp4" />
+
+                            {/* WebM (mejor calidad/peso, fallback secundario) */}
+                            <source src={videos[indexVideo].webm} type="video/webm" />
+
+                            Tu navegador no soporta video.
+                        </motion.video>
                     </AnimatePresence>
 
                     {/* button left */}
                     <button
                         onClick={prevVideo}
 
-                        className=" cursor-pointer absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white px-4 py-2 rounded-full"
+                        className=" cursor-pointer absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white px-4 py-4 rounded-full"
                     >
                         <img
                             src="tijera.png"
@@ -147,7 +166,7 @@ const AboutMe = () => {
                     {/* button right */}
                     <button
                         onClick={nextVideo}
-                        className="cursor-pointer absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white px-4 py-2 rounded-full"
+                        className="cursor-pointer absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white px-4 py-4 rounded-full"
                     >
                         <img
                             src="tijera.png"

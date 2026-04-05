@@ -3,6 +3,7 @@ import video1 from "@/assets/videos/v1.webm"
 import Catalogo from "./Catalogo";
 import AboutMe from "./AboutMe";
 import BtnWsp from "../customs/BtnWsp";
+import BarberLocation from "./BarberLocation";
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -36,7 +37,7 @@ const PageMain = () => {
 
                 {/* TEXTO */}
                 <div  className="absolute inset-0 flex items-center justify-center">
-                    <h1 className="text-white/60 text-2xl md:text-7xl font-title tracking-wide text-center px-4">
+                    <h1 className="text-white/60 text-5xl md:text-8xl font-minimalist tracking-wide text-center px-4">
                         No es solo un corte<br />Es identidad
                     </h1>
                 </div>
@@ -47,6 +48,10 @@ const PageMain = () => {
 
             {/*ACERCA DE MÍ*/}
             <AboutMe/>
+
+            {/* DIRECCION */}
+
+            <BarberLocation/>
 
             {/*BOTON WSP*/}
             <BtnWsp/>

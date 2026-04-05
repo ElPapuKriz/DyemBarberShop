@@ -10,7 +10,7 @@ const CustomPagination = ({ totalPages }: Props) => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const page = Number(searchParams.get('page')) || 1;
-    const limit  = Number(searchParams.get('limit')) || 6;
+    const limit  = Number(searchParams.get('limit')) || 4;
     
     const goToPage = (newPage: number) => {
         setSearchParams(prev =>{
