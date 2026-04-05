@@ -8,10 +8,10 @@ const images = [
     "me/me4.jpeg",
 ]
 
-const videos = [
+/* const videos = [
     "me/video1.mp4",
     "me/video2.mp4",
-]
+] */
 
 const AboutMe = () => {
 
@@ -103,7 +103,7 @@ const AboutMe = () => {
 
             {/* Videos */}
             
-
+            
             
 
         </section>
