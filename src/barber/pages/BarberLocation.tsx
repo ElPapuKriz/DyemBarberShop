@@ -7,7 +7,7 @@ const BarberLocation = () => {
 
             {/* Dirección real */}
             <p className="text-white mb-6 text-center max-w-md">
-                Encuéntranos fácilmente en nuestra ubicación oficial 
+                Encuéntranos en nuestra ubicación oficial 
             </p>
 
             {/* Mapa */}
