@@ -8,7 +8,7 @@ const BtnWsp = () => {
         const interval = setInterval(() => {
             setAnimate(true)
             setTimeout(() => setAnimate(false), 1000)
-        }, 10000)
+        }, 5000)
 
         return () => clearInterval(interval)
     }, [])
@@ -33,7 +33,7 @@ const BtnWsp = () => {
                         : {}
                 }
                 transition={{ duration: 0.6 }}
-                className="bg-[#0B0B0B]/50 hover:bg-green-600 text-white p-3 sm:p-4 md:p-5 rounded-full shadow-lg"
+                className="bg-green-500/50 hover:bg-green-600 text-white p-3 sm:p-4 md:p-5 rounded-full shadow-lg"
             >
                 {/* Icono WhatsApp */}
                 <svg
