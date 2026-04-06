@@ -4,9 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 const images = [
     "me/me1.jpeg",
     "me/me2.jpeg",
-    "me/me3.jpeg",
-    "me/me4.jpeg",
-    "me/me5.png",
+    "me/me3.png",
 ]
 
 const videos = [
@@ -88,7 +86,7 @@ const AboutMe = () => {
                             transition={{ duration: 0.8 }}
                         />
                     ))}
-                    <h3 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-minimalist text-5xl md:text-8xl p-3 z-10 text-white/60">Dario Jeyson</h3>
+                    <h3 className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-minimalist text-5xl md:text-8xl p-3 z-10 text-white/40">Dario Jeyson</h3>
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/60 to-transparent" />
 
