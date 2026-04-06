@@ -79,6 +79,20 @@ const CustomHeader = () => {
                         </Button>
                     </motion.div>
 
+                    <motion.div
+                        initial={{ opacity: 0, x: 200 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <Button asChild
+                            className="text-main text-white p-5 text-md"
+                            onMouseEnter={() => { setIcon("locaciones") }}
+                            onMouseLeave={() => { setIcon("") }}
+                        >
+                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-yellow-700" />} Locaciones </a>
+                        </Button>
+                    </motion.div>
+
 
                 </div>
             </div>
@@ -135,6 +149,20 @@ const CustomHeader = () => {
                             onMouseLeave={() => { setIcon("") }}
                         >
                             <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-yellow-700" />} Acerca de mí</a>
+                        </Button>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <Button asChild
+                            className="text-main text-white"
+                            onMouseEnter={() => { setIcon("locaciones") }}
+                            onMouseLeave={() => { setIcon("") }}
+                        >
+                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-yellow-700" />} Locaciones</a>
                         </Button>
                     </motion.div>
 

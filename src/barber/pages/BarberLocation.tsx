@@ -1,6 +1,6 @@
 const BarberLocation = () => {
     return (
-        <div id="location" className="w-full flex flex-col items-center justify-center py-12 bg-[#0B0B0B] scroll-mt-30">
+        <div id="locaciones" className="w-full flex flex-col items-center justify-center py-12 bg-[#0B0B0B] scroll-mt-30">
 
             {/* Título */}
             <h2 className=" font-minimalist mb-3 text-white text-5xl md:text-8xl">Locaciones</h2>
