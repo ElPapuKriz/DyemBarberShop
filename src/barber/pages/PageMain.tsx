@@ -4,6 +4,7 @@ import Catalogo from "./Catalogo";
 import AboutMe from "./AboutMe";
 import BtnWsp from "../customs/BtnWsp";
 import BarberLocation from "./BarberLocation";
+import Tiktok from "./Tiktok";
 
 const PageMain = () => {
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -49,8 +50,10 @@ const PageMain = () => {
             {/*ACERCA DE MÍ*/}
             <AboutMe/>
 
-            {/* DIRECCION */}
+            {/*TIKTOK*/}
+            <Tiktok/>
 
+            {/* DIRECCION */}
             <BarberLocation/>
 
             {/*BOTON WSP*/}

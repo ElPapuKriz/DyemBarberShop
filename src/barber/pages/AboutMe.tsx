@@ -6,6 +6,7 @@ const images = [
     "me/me2.jpeg",
     "me/me3.jpeg",
     "me/me4.jpeg",
+    "me/me5.png",
 ]
 
 const videos = [
