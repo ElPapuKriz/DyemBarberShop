@@ -7,11 +7,9 @@ export const LayoutMain = () => {
         <div id="inicio" className="flex flex-col bg-taupe-900 ">
             
                 <CustomHeader/>
-
                 
                     <Outlet />
                 
-            
                 <CustomFooter/>
             
         </div>

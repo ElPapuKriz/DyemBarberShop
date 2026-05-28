@@ -12,8 +12,9 @@ const CustomHeader = () => {
 
     return (
         <header>
-            <div className="w-full flex justify-between z-50 fixed bg-linear-to-r from-[#251e19] to-[#AB6626]/10 backdrop-blur-md p-5 items-center">
+            <div className="w-full flex justify-between z-50 fixed bg-linear-to-r from-[#201710] to-[#52371e] backdrop-blur-md p-5 items-center border-b-4 border-[#978957]">
 
+                {/* Logo */}
                 <div>
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
@@ -29,9 +30,9 @@ const CustomHeader = () => {
 
                 <Button
                     onClick={handleMenuOpen}
-                    className="md:hidden p-4"
+                    className="md:hidden p-4 border-b-4 border-[#978957] rounded-md bg-primary"
                 >
-                    <ScissorsIcon className="text-[#978957] size-5" />
+                    <ScissorsIcon className="text-[#978957] size-5.5" />
                 </Button>
 
                 <div className="hidden md:flex items-end gap-3 font-main">
@@ -42,11 +43,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.2 }}
                     >
                         <Button asChild
-                            className="text-main text-white p-5 text-md"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("inicio") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-yellow-700" />} Inicio </a>
+                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-[#978957]" />} Inicio </a>
 
                         </Button>
                     </motion.div>
@@ -57,11 +58,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.3 }}
                     >
                         <Button asChild
-                            className="text-main text-white p-5 text-md"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("catalogo") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-yellow-700" />} Galería</a>
+                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-[#978957]" />} Galería</a>
                         </Button>
                     </motion.div>
 
@@ -71,11 +72,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.4 }}
                     >
                         <Button asChild
-                            className="text-main text-white p-5 text-md"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("acerca") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-yellow-700" />} Acerca de mí </a>
+                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-[#978957]" />} Acerca de mí </a>
                         </Button>
                     </motion.div>
 
@@ -85,11 +86,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.5 }}
                     >
                         <Button asChild
-                            className="text-main text-white p-5 text-md"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("locaciones") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-yellow-700" />} Locaciones </a>
+                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-[#978957]" />} Locaciones </a>
                         </Button>
                     </motion.div>
 
@@ -102,10 +103,10 @@ const CustomHeader = () => {
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className={`${menuOpen ? 'md:hidden' : 'hidden'} fixed z-50 bg-[#251e19]/80 w-50 h-50 rounded-md top-30 right-5`}
+                className={`${menuOpen ? 'md:hidden' : 'hidden'} fixed z-50 bg-[#251e19]/80 w-50 rounded-md top-30 right-5`}
             >
                 <div
-                    className="flex flex-col gap-2 p-2 my-2 mx-2 bg-amber-100/40 rounded-md "
+                    className="flex flex-col gap-2 p-2 my-2 mx-2 bg-orange-300/30 rounded-md "
                 >
                     <motion.div
                         initial={{ opacity: 0, x: 200 }}
@@ -113,16 +114,14 @@ const CustomHeader = () => {
                         transition={{ delay: 0.2 }}
                     >
                         <Button asChild
-                            className="text-main text-white"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("inicio") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-yellow-700" />} Inicio </a>
+                            <a href="#inicio"> {Icon === "inicio" && <ScissorsIcon className="text-[#978957]" />} Inicio </a>
 
                         </Button>
                     </motion.div>
-
-
 
                     <motion.div
                         initial={{ opacity: 0, x: 200 }}
@@ -130,11 +129,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.3 }}
                     >
                         <Button asChild
-                            className="text-main text-white"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("catalogo") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-yellow-700" />} Galería</a>
+                            <a href="#galeria">{Icon === "catalogo" && <ScissorsIcon className="text-[#978957]" />} Galería</a>
                         </Button>
                     </motion.div>
 
@@ -144,11 +143,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.4 }}
                     >
                         <Button asChild
-                            className="text-main text-white"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("acerca") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-yellow-700" />} Acerca de mí</a>
+                            <a href="#aboutMe">{Icon === "acerca" && <ScissorsIcon className="text-[#978957]" />} Acerca de mí</a>
                         </Button>
                     </motion.div>
 
@@ -158,11 +157,11 @@ const CustomHeader = () => {
                         transition={{ delay: 0.5 }}
                     >
                         <Button asChild
-                            className="text-main text-white"
+                            className="text-main text-[#978957] p-5 text-md border-b-4 border-[#978957] "
                             onMouseEnter={() => { setIcon("locaciones") }}
                             onMouseLeave={() => { setIcon("") }}
                         >
-                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-yellow-700" />} Locaciones</a>
+                            <a href="#locaciones">{Icon === "locaciones" && <ScissorsIcon className="text-[#978957]" />} Locaciones</a>
                         </Button>
                     </motion.div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 
 const images = [
     "me/me1.jpeg",
@@ -7,29 +7,10 @@ const images = [
     "me/me3.png",
 ]
 
-const videos = [
-    {
-        mp4: "me/video1.mp4",
-        webm: "me/video1.webm"
-    },
-    {
-        mp4: "me/video2.mp4",
-        webm: "me/video2.webm"
-    },
-    {
-        mp4: "me/video3.mp4",
-        webm: "me/video3.webm"
-    },
-    {
-        mp4: "me/video4.mp4",
-        webm: "me/video4.webm"
-    },
-];
-
 const AboutMe = () => {
 
     const [indexImg, setIndexImg] = useState(0)
-    const [indexVideo, setIndexVideo] = useState(0)
+    
     const [aboutme, setAboutMe] = useState('hidden')
 
     useEffect(() => {
@@ -39,18 +20,6 @@ const AboutMe = () => {
 
         return () => clearInterval(intervalImg)
     }, [images.length])
-
-    const nextVideo = () => {
-        setIndexVideo((prev) =>
-            prev === videos.length - 1 ? 0 : prev + 1
-        )
-    }
-
-    const prevVideo = () => {
-        setIndexVideo((prev) =>
-            prev === 0 ? videos.length - 1 : prev - 1
-        )
-    }
 
     return (
         <section id="aboutMe" className="bg-[#0B0B0B] p-6 text-white scroll-mt-30">
@@ -125,58 +94,6 @@ const AboutMe = () => {
                 </div>
 
             </div>
-
-            {/* Videos */}
-
-            <div className="mt-12 flex flex-col items-center gap-6">
-
-                <div className="relative w-full max-w-100 md:w-120">
-
-                    <AnimatePresence mode="wait">
-                        <motion.video
-                            key={videos[indexVideo].mp4}
-                            className="w-full rounded-2xl shadow-lg"
-                            controls
-                            controlsList="nodownload noremoteplayback"
-                            disablePictureInPicture
-                        >
-                            {/* MP4 (PRIORIDAD ALTA - Safari, iPhone) */}
-                            <source src={videos[indexVideo].mp4} type="video/mp4" />
-
-                            {/* WebM (mejor calidad/peso, fallback secundario) */}
-                            <source src={videos[indexVideo].webm} type="video/webm" />
-
-                            Tu navegador no soporta video.
-                        </motion.video>
-                    </AnimatePresence>
-
-                    {/* button left */}
-                    <button
-                        onClick={prevVideo}
-
-                        className=" cursor-pointer absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white px-4 py-4 rounded-full"
-                    >
-                        <img
-                            src="tijera.png"
-                            className="w-5 rotate-180 invert brightness-0"
-                            alt="<-" />
-                    </button>
-
-                    {/* button right */}
-                    <button
-                        onClick={nextVideo}
-                        className="cursor-pointer absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white px-4 py-4 rounded-full"
-                    >
-                        <img
-                            src="tijera.png"
-                            className="w-5 invert brightness-0"
-                            alt="->" />
-                    </button>
-
-                </div>
-            </div>
-
-
 
         </section>
     )

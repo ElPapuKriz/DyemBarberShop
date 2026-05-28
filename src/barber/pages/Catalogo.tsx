@@ -9,12 +9,12 @@ const Catalogo = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const page   = Number(searchParams.get('page'))  || 1;
-    const limit  = Number(searchParams.get('limit')) || 4;
+    const limit  = Number(searchParams.get('limit')) || 3;
     const offset = (page - 1) * limit
     const imgFiltradas = Math.ceil(images.length/limit)
 
     if (isNaN(page))setSearchParams({ page: "1" })
-    if (isNaN(limit))setSearchParams({ limit: "4" })
+    if (isNaN(limit))setSearchParams({ limit: "3" })
 
     useEffect(()=>{
         if (page>imgFiltradas || page<1)setSearchParams({ page: "1" })
